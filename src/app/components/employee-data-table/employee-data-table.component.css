@@ -1,0 +1,69 @@
+.full-width-table {
+    width: 100%;
+}
+
+.employeeList {
+    width: 98%;
+    margin-top: 10px;
+    margin-left: 10px;
+    position: relative;
+}
+
+.delete {
+    color: #ff0000;
+}
+
+.delete:hover {
+    opacity: 70%;
+}
+
+.edit {
+    color: #6495ED;
+}
+
+.edit:hover {
+    opacity: 70%;
+}
+
+.search-div {
+    margin: 10px;
+}
+
+.search-form-field {
+    width: 60%;
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+.search-form-field div.mat-form-field-underline {
+    display: none;
+}
+
+.search-form-field div.mat-form-field-infix {
+    border-top: 0px;
+}
+
+.search-form-field div.mat-form-field-wrapper {
+    padding-bottom: 0px;
+}
+
+.search-form-field div.mat-form-field-suffix button {
+    height: 32px;
+    width: 32px;
+}
+
+.active {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+.filter {
+    font-family: inherit;
+    font-style: initial;
+    font-size: 16px;
+    margin-left: 10px;
+}
