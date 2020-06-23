@@ -14,13 +14,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-
+import { RegisterComponent } from './components/register/register.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogRegisterComponent } from './components/dialog/dialog-register/dialog-register.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    EmployeeDataTableComponent
+    EmployeeDataTableComponent,
+    RegisterComponent,
+    DialogRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +43,16 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     ReactiveFormsModule,
     FormsModule,
     MatFormFieldModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatDialogModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatRadioModule,
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
-  providers: [],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

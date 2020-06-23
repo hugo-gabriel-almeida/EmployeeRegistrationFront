@@ -1,0 +1,17 @@
+.mat-radio-button~.mat-radio-button {
+    margin-left: 16px;
+}
+
+.lastName {
+    margin-left: 10px;
+    width: 65%;
+}
+
+.email {
+    margin-left: 10px;
+    width: 65%;
+}
+
+.skills {
+    width: 100%
+}

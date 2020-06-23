@@ -1,7 +1,7 @@
-<div class="row">
-    <span class="filter">Filtro: </span>
-    <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Filtro ex: Idade, Sexo, Habilidades, Nome etc... ">
-    <button mat-button color="primary">Cadastrar Funcionários</button>
+<div class="filter">
+    <span class="filterText">Filtro: </span>
+    <input class="inputFilter" (keyup)="applyFilter($event.target.value)" placeholder="Idade, Sexo, Habilidades, Nome etc... ">
+    <app-register></app-register>
 </div>
 
 <div class="mat-elevation-z8 employeeList">

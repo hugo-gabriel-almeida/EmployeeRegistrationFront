@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>{{title}}</h2>
+
+<div class="row">
+    <mat-form-field appearance="outline" class="">
+        <mat-label>Nome</mat-label>
+        <input matInput placeholder="Nome" [formControl]="firstName">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="lastName">
+        <mat-label>Sobrenome</mat-label>
+        <input matInput placeholder="Sobrenome" [formControl]="lastName">
+    </mat-form-field>
+</div>
+
+<div>
+    <mat-form-field appearance="outline">
+        <mat-label>Data de nascimento</mat-label>
+        <input matInput placeholder="dd/mm/aaaa" [formControl]="birthDay">
+        <mat-error *ngIf="birthDay.invalid">{{getErrorMessageBirthDay()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="email">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" [formControl]="email">
+        <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
+    </mat-form-field>
+</div>
+
+<div>
+    <mat-form-field appearance="outline" class="skills">
+        <mat-label>Habilidades</mat-label>
+        <input placeholder="Pick one" aria-label="Number" matInput [formControl]="skills" [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</div>
+
+
+
+<div>
+    <mat-radio-group aria-label="Select an option" [formControl]="genre">
+        <mat-radio-button value="M">Masculino</mat-radio-button>
+        <mat-radio-button value="F">Feminino</mat-radio-button>
+    </mat-radio-group>
+</div>
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Salvar</button>
+</mat-dialog-actions>
