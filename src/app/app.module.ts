@@ -23,7 +23,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
-import { DatePipe } from '@angular/common'
+import { DatePipe } from '@angular/common';
+import { EditComponent } from './components/edit/edit.component'
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { DatePipe } from '@angular/common'
     HeaderComponent,
     EmployeeDataTableComponent,
     RegisterComponent,
-    DialogRegisterComponent
+    DialogRegisterComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

@@ -17,14 +17,6 @@
     opacity: 70%;
 }
 
-.edit {
-    color: #6495ED;
-}
-
-.edit:hover {
-    opacity: 70%;
-}
-
 .active {
     display: flex;
     align-content: center;

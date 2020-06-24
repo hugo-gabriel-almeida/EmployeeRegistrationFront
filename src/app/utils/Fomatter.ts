@@ -19,7 +19,7 @@ export class Formatter {
       data.push({
         id: employees[i].id,
         name: employees[i].firstName + " "+employees[i].lastName,
-        genre: employees[i].genre == "F" ? "Masculino" : "Feminino",
+        genre: employees[i].genre == "M" ? "Masculino" : "Feminino",
         birthDay: employees[i].birthDay,
         age,
         email: employees[i].email,
@@ -41,7 +41,6 @@ export class Formatter {
       var todayDate = new Date();
       var ageyear = todayDate.getFullYear() - dobDate.getFullYear();
       var agemonth = todayDate.getMonth() - dobDate.getMonth();
-      var ageday = todayDate.getDate() - dobDate.getDate();
 
       if (agemonth <= 0) {
         ageyear--;

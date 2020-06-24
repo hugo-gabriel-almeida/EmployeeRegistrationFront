@@ -1,5 +1,12 @@
 <h2 mat-dialog-title>{{title}}</h2>
 
+<div *ngIf="showIdEmployee > 0" class="row">
+    <mat-form-field appearance="outline" class="">
+        <mat-label>id</mat-label>
+        <input matInput [formControl]="idEmployee">
+    </mat-form-field>
+</div>
+
 <div class="row">
     <mat-form-field appearance="outline" class="">
         <mat-label>Nome</mat-label>
@@ -41,7 +48,7 @@
 
 
 <div>
-    <mat-radio-group aria-label="Select an option" [formControl]="genre">
+    <mat-radio-group aria-label="Select an option" [formControl]="genre" (click)="getValue()">
         <mat-radio-button value="M">Masculino</mat-radio-button>
         <mat-radio-button value="F">Feminino</mat-radio-button>
     </mat-radio-group>
@@ -49,5 +56,5 @@
 
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Salvar</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="saveEmployee()" [disabled]=validateForm()>Salvar</button>
 </mat-dialog-actions>

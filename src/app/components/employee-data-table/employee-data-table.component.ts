@@ -59,4 +59,9 @@ export class EmployeeDataTableComponent implements AfterViewInit, OnInit {
     this.regExpr = new RegExp(filterValue);
     this.dataSource.filter = filterValue;
   }
+
+  changeStatus(idEmployee, active) {
+    console.log(event)
+    this._employeeService.changeStatus(idEmployee, active);
+  }
 }
