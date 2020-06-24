@@ -3,16 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { EmployeeDataTableItem } from './../../interfaces/EmployeeDataTableItem';
-
-const employees: EmployeeDataTableItem[] = [
-  { id: 1, name: 'Hydrogen', sexo: 'masculino', birthDay: '18/06/1992', age: 18, email: 'email@email.com', skills:'Csharp, ASP' },
-  { id: 2, name: 'Helium', sexo: 'masculino', birthDay: '12/06/1992', age: 18, email: 'email@email.com', skills: 'Java, ASP'} ,
-  { id: 3, name: 'Lithium', sexo: 'masculino', birthDay: '13/06/1992', age: 18, email: 'email@email.com', skills: 'Csharp, ASP'},
-  { id: 4, name: 'Beryllium', sexo: 'masculino', birthDay: '18/06/1992', age: 18, email: 'email@email.com', skills: 'Java, ASP, SQL'},
-  { id: 5, name: 'Boron', sexo: 'masculino', birthDay: '20/06/1992', age: 18, email: 'email@email.com' ,skills: 'Java, ASP, SQL' },
-  { id: 6, name: 'Carbon', sexo: 'masculino', birthDay: '18/06/1992', age: 20, email: 'email@email.com', skills: 'Java, ASP, SQL'},
-  { id: 7, name: 'Nitrogen', sexo: 'feminino', birthDay: '18/06/1992', age: 18, email: 'email@email.com', skills: 'Java, ASP, SQL'},
-];
+import { EmployeesService } from 'src/app/services/employees.service';
+import { Formatter } from './../../utils/Fomatter';
 
 @Component({
   selector: 'app-employee-data-table',
@@ -24,22 +16,35 @@ export class EmployeeDataTableComponent implements AfterViewInit, OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatTable) table: MatTable<EmployeeDataTableItem>;
-  dataSource = new MatTableDataSource(employees)
 
-  displayedColumns = ['id', 'name', 'birthDay', 'genre', 'age', 'email', 'skills','edit', 'active'];
+  dataSource
+  employeesDataSource: EmployeeDataTableItem[];
+  regExpr: any
+  displayedColumns = [
+    'id', 'name', 'birthDay', 'genre', 'age', 'email', 'skills','edit', 'active'
+  ];
 
-  ngOnInit() {
+  constructor(
+    private _employeeService:EmployeesService,
+    private _formatter: Formatter
+    ){}
+
+  async ngOnInit() {
 
   }
 
-  ngAfterViewInit() {
+  async ngAfterViewInit() {
+    let employees = await this._employeeService.getAllEmployees();
+    const data = this._formatter.getDataSource(employees);
+    this.employeesDataSource = data;
+
+    this.dataSource = new MatTableDataSource(this.employeesDataSource)
+
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
   }
 
-
-  regExpr: any
   regExprFilter() {
     return (data: any) => {
       try {

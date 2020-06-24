@@ -1,9 +1,9 @@
-export interface EmployeeDataTableItem {
+export class Employee {
   id: number;
-  name: string;
+  firstName: string;
+  lastName: string;
   genre: string;
   birthDay: string;
-  age: number;
   email: string;
   skills: string;
   active: boolean;
